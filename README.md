@@ -1,5 +1,5 @@
 # SMS Sender
-SMS sending service with HTTP REST interface.
+SMS sending service with HTTP REST interface (using https://bsms.tele2.ru/api).
 
 ### Requirements
   * curl
