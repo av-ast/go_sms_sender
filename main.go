@@ -28,6 +28,7 @@ var (
 func main() {
 	addr := getenv("LISTEN_ADDR", ":8000")
 	gateway_params = make(map[string]string)
+	gateway_params["enabled"] = getenv("SMS_GATEWAY_ENABLED", "false")
 	gateway_params["url"] = getenv("SMS_GATEWAY_URL", "https://bsms.tele2.ru/api")
 	gateway_params["login"] = getenv("SMS_GATEWAY_LOGIN", "")
 	gateway_params["password"] = getenv("SMS_GATEWAY_PASSWORD", "")
@@ -61,7 +62,7 @@ func send_sms(writer http.ResponseWriter, request *http.Request, params httprout
 	log.Print("Request url: ", gateway_params["url"])
 	log.Print("Request params: ", query_params)
 
-	gw_resp := send_request(gateway_params["url"], query_params)
+	gw_resp := send_request(gateway_params, query_params)
 
 	log.Print("Gateway Response Status: ", gw_resp.Status())
 	log.Print("Gateway Response Body: ", gw_resp.String())
@@ -92,7 +93,7 @@ func get_sms_status(writer http.ResponseWriter, request *http.Request, params ht
 	log.Print("Request url: ", gateway_params["url"])
 	log.Print("Request params: ", query_params)
 
-	gw_resp := send_request(gateway_params["url"], query_params)
+	gw_resp := send_request(gateway_params, query_params)
 
 	log.Print("Gateway Response Status: ", gw_resp.Status())
 	log.Print("Gateway Response Body: ", gw_resp.String())
