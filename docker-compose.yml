@@ -8,5 +8,5 @@ services:
     environment:
       LISTEN_ADDR: ":8000"
     volumes:
-      - ./:/app
+      - ./:/go/src/github.com/av-ast/sms_sender
       - ~/.bash_history:/root/.bash_history

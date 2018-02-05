@@ -6,10 +6,8 @@ RUN mkdir -p $APP_SOURCE
 ADD . $APP_SOURCE
 WORKDIR $APP_SOURCE
 
-RUN go get -u github.com/golang/dep/cmd/dep && \
-    dep ensure && \
-    go install
+RUN make
 
 EXPOSE 8000
 
-CMD ["bash", "sms_sender"]
+CMD ["bash", "-c", "sms_sender"]
