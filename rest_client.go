@@ -6,24 +6,18 @@ import (
 )
 
 func send_request(gateway_params map[string]string, query_params map[string]string) *resty.Response {
-	var resp *resty.Response
-	var err interface{}
-
 	if gateway_params["enabled"] == "true" {
-		resp, err = resty.R().SetQueryParams(query_params).Get(gateway_params["url"])
+		resp, err := resty.R().SetQueryParams(query_params).Get(gateway_params["url"])
 
 		if err != nil {
 			panic(err)
 		}
+
+		return resp
 	} else {
-		raw_resp := new(http.Response)
-		raw_resp.Status = "200 OK"
-		raw_resp.StatusCode = http.StatusOK
-		raw_resp.Body = http.NoBody
+		raw_resp := &http.Response{Status: "200 OK", StatusCode: http.StatusOK, Body: http.NoBody}
+		resp := &resty.Response{RawResponse: raw_resp}
 
-		resp = new(resty.Response)
-		resp.RawResponse = raw_resp
+		return resp
 	}
-
-	return resp
 }
