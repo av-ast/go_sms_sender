@@ -22,3 +22,14 @@ SMS sending service with HTTP REST interface (using https://bsms.tele2.ru/api).
 
     {"status":"success","data":{"delivery_status": "delivered"}}
     {"status":"error","data":{"error":"message"}}
+
+### ENV variables
+
+| Name                   | Default value               |
+|------------------------|-----------------------------|
+| LISTEN_ADDR            | ":8000"                     |
+| SMS_GATEWAY_ENABLED    | "false"                     |
+| SMS_GATEWAY_URL        | "https://bsms.tele2.ru/api" |
+| SMS_GATEWAY_LOGIN      | ""                          |
+| SMS_GATEWAY_PASSWORD   | ""                          |
+| SMS_GATEWAY_SHORTCODE  | ""                          |
