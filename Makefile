@@ -16,6 +16,6 @@ show_coverage:
 	go tool cover -html=coverage.out
 
 apidoc:
-	apidoc -o apidoc
+	apidoc -o apidocs
 
 .PHONY: install_requirements get_deps build test show_coverage apidoc

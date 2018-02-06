@@ -28,7 +28,7 @@ func main() {
 	router := httprouter.New()
 	router.POST("/sms", send_sms)
 	router.GET("/sms/:id", get_sms_status)
-	router.ServeFiles("/apidoc/*filepath", http.Dir("apidoc"))
+	router.ServeFiles("/apidocs/*filepath", http.Dir("apidocs"))
 
 	log.Print("Starting SMS sender on ", addr)
 

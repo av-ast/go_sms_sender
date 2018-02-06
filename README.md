@@ -24,7 +24,7 @@ SMS sending service with HTTP REST interface (using https://bsms.tele2.ru/api).
     {"status":"error","data":{"error":"message"}}
 
 API documentation will be also available after complete project setup
-at [http://localhost:8000/apidoc](http://localhost:8000/apidoc)
+at [http://localhost:8000/apidocs](http://localhost:8000/apidocs)
 
 ### ENV variables
 
