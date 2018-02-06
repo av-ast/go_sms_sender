@@ -1,4 +1,4 @@
-all: install_requirements get_deps build test
+all: install_requirements get_deps build apidoc test
 
 install_requirements:
 	go get -u github.com/golang/dep/cmd/dep
@@ -15,4 +15,7 @@ test:
 show_coverage:
 	go tool cover -html=coverage.out
 
-.PHONY: install_requirements get_deps build test show_coverage
+apidoc:
+	apidoc -o apidoc
+
+.PHONY: install_requirements get_deps build test show_coverage apidoc

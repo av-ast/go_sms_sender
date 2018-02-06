@@ -1,5 +1,11 @@
 FROM golang:1.9.2
 
+# nodejs + apidocjs
+RUN apt update && \
+    curl --silent --location https://deb.nodesource.com/setup_6.x | bash - && \
+    apt install -y nodejs && \
+    npm install apidoc -g
+
 ENV APP_SOURCE $GOPATH/src/github.com/av-ast/sms_sender
 
 RUN mkdir -p $APP_SOURCE

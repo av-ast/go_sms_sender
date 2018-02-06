@@ -1,0 +1,7 @@
+{
+  "name": "SMS sender",
+  "version": "0.1.0",
+  "description": "SMS sending service with HTTP REST interface",
+  "title": "SMS sender API",
+  "url" : "http://sms_sender.digital.rt.ru"
+}

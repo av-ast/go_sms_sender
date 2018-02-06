@@ -17,6 +17,21 @@ type JsonResponse interface {
 	toJson() string
 }
 
+/**
+ * @api {post} /sms Send SMS
+ * @apiName SendSms
+ * @apiGroup Sms
+ * @apiHeader {string=application/json} Content-Type
+ *
+ * @apiParam {String} phone Phone number.
+ * @apiParam {String} text SMS text.
+ *
+ * @apiSuccessExample {json} 200 Success
+ * {
+ *   "data": {"sms_id": "3243242423"},
+ *   "status": "success"
+ * }
+ */
 func send_sms(writer http.ResponseWriter, request *http.Request, params httprouter.Params) {
 	defer request.Body.Close()
 
@@ -51,6 +66,19 @@ func send_sms(writer http.ResponseWriter, request *http.Request, params httprout
 	fmt.Fprintf(writer, resp.toJson())
 }
 
+/**
+* @api {get} /sms/:id Get SMS status
+ * @apiName GetSmsStatus
+ * @apiGroup Sms
+ *
+ * @apiParam {String} id SMS id.
+ *
+ * @apiSuccessExample {json} 200 Success
+ * {
+ *   "data": {"delivery_status": "delivered"},
+ *   "status": "success"
+ * }
+*/
 func get_sms_status(writer http.ResponseWriter, request *http.Request, params httprouter.Params) {
 	defer request.Body.Close()
 
